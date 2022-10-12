@@ -1,0 +1,11 @@
+const Nome = ("Claudia")
+const Email = ("claudiaoiuskoski@hotmail.com")
+const Profissão = ("supervisora")
+const Idade = (46)
+const LugarSonho = ("Noronha")
+
+console.log(typeof Nome == "string")
+console.log(typeof Email == "string")
+console.log(typeof Profissão == "string")
+console.log(typeof Idade == "string")
+console.log(typeof LugarSonho == "string")
