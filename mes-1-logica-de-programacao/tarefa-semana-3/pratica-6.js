@@ -1,19 +1,12 @@
-function buscaTextoEmLista(lista, termoDeBusca) {
-    let listaFiltrada = []
-    for (let i = 0 ; i < lista.length; i ++)  {
-
-        if (lista[i].includes(termoDeBusca)) {
-            listaFiltrada = lista[i]
-           
-
-            listaFiltrada.push(serie)
-        }
-    }
-
-    return listaFiltrada 
+let filtraLista = (lista, valor) => {
+    let novaLista = []
+    for (item of lista)
+        if (item.includes(valor))
+            novaLista.push(item)
+    return novaLista
 }
 
-
-let serie= ["Breaking Bad", "Game of Thrones", "Stranger Things", "Chernobyl", "Dexter", "The Last Dance", "This is Us"]
-
-console.log(buscaTextoEmLista(serie, ["Th"]))
+/* TESTANDO A SOLUÇÃO */
+const listaSeriados = ["Breaking Bad", "Game of Thrones", "Stranger Things", "Chernobyl", "Dexter", "The Last Dance", "This is Us"]
+console.log(filtraLista(listaSeriados, "Th"))
+console.log(filtraLista(listaSeriados, "xasd"))
