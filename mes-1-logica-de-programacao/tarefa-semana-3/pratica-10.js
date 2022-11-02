@@ -1,47 +1,38 @@
-function contaVotos(votos) {
-    let votosBrasil = 0
-
-    for (voto in votos) {
-        if (voto === 1) {
-            votosBrasil++
-        }
-    }
-    let votosArgentina = 0
-
-
-    for (voto in votos) {
-        if (voto === 2) {
-            votosArgentina++
-        }
-    }
-    let votosEspanha = 0
-
-
-    for (voto in votos) {
-        if (voto === 3) {
-            votosEspanha++
-        }
-    }
-    let votosPortugal = 0
-    for (voto in votos) {
-        if (voto === 4) {
-            votosPortugal++
-        }
-    }
-    console.log(`votos Brasil ${votosBrasil}`)
-    console.log(`votos Argentina ${votosArgentina}`)
-    console.log(`votos Espanha ${votosEspanha}`)
-    console.log(`votos Portugal ${votosPortugal}`)
-    if (votoBrasil > votoArgentina && votoBrasil > votoEspanha && votoBrasil > votoPortugal) {
-        console.log("Brasil é o preferido para ganhar a Copa do Mundo")
-    }
-
+let verificaPreferidoDaCopa = (votosBrasil, votosArgentina, votosEspanha, votosPortugal) => {
+    if (votosBrasil >= votosArgentina && votosBrasil >= votosEspanha && votosBrasil >= votosPortugal)
+        return "Brasil"
+    else if (votosArgentina >= votosEspanha && votosArgentina >= votosPortugal)
+        return "Argentina"
+    else if (votosEspanha >= votosPortugal)
+        return "Espanha"
+    else
+        return "Portugal"
 }
 
+let exibePreferidoDaCopa = listaVotos => {
+    let votosBrasil = 0
+    let votosArgentina = 0
+    let votosEspanha = 0
+    let votosPortugal = 0
 
+    for (voto of listaVotos) {
+        votosBrasil += voto === 1 ? 1 : 0
+        votosArgentina += voto === 2 ? 1 : 0
+        votosEspanha += voto === 3 ? 1 : 0
+        votosPortugal += voto === 4 ? 1 : 0
+    }
+    
+    var preferido = verificaPreferidoDaCopa(votosBrasil, votosArgentina, votosEspanha, votosPortugal)
 
-let votos = ([1, 1, 1, 4, 4, 2, 3, 2])
+    console.log(`Brasil: ${votosBrasil} voto(s)`)
+    console.log(`Argentina: ${votosArgentina} voto(s)`)
+    console.log(`Espanha: ${votosEspanha} voto(s)`)
+    console.log(`Portugal: ${votosPortugal} voto(s)\n`)
 
+    console.log("Resultado:")
+    console.log(`${preferido} é o preferido para ganhar a Copa do Mundo!`)
+}
 
-contaVotos(votos)
-
+/* TESTANDO A SOLUÇÃO */
+let listaVotos = [1, 1, 1, 4, 4, 2, 3, 2]
+exibePreferidoDaCopa(listaVotos)
